@@ -87,6 +87,7 @@ function get_list($jenis, $id_user){
             "tanggal_lunas" => $row["tanggal_lunas"],
             "jenis" => $row["jenis"],
             "status" => $row["status"],
+            "id_user" => $row["id_user"]
         );
     }
     return $hasil;
