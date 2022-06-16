@@ -5,6 +5,11 @@ $user = "daaw4477_dq";
 $pass = "joya_123";
 $dtbs = "daaw4477_db_pab";
 
+// $host = "localhost";
+// $user = "root";
+// $pass = "";
+// $dtbs = "db_pab";
+
 $koneksi = mysqli_connect($host, $user, $pass, $dtbs);
 
 
@@ -41,9 +46,9 @@ function delete($id){
     return mysqli_affected_rows($koneksi);
 }
 
-function add($keterangan = "", $nominal, $tanggal, $jenis, $status, $tanggal_lunas){
+function add($keterangan = "", $nominal, $tanggal, $jenis, $status, $tanggal_lunas, $id_user){
     global $koneksi;
-    $query = "INSERT INTO tb_hutang_piutang VALUES('', '$keterangan', '$nominal', '$tanggal', '$tanggal_lunas', '$jenis', '$status')";
+    $query = "INSERT INTO tb_hutang_piutang VALUES('', '$keterangan', '$nominal', '$tanggal', '$tanggal_lunas', '$jenis', '$status', '$id_user')";
     mysqli_query($koneksi, $query);
     return mysqli_affected_rows($koneksi);
 }
@@ -55,13 +60,9 @@ function edit($keterangan = "", $nominal, $tanggal, $jenis, $status, $tanggal_lu
     return mysqli_affected_rows($koneksi);
 }
 
-function get_all(){
+function get_total_hutang($jenis, $id_user){
     global $koneksi;
-}
-
-function get_total_hutang($jenis){
-    global $koneksi;
-    $query = "SELECT SUM(tb_hutang_piutang.nominal) AS hutang FROM `tb_hutang_piutang` WHERE jenis = $jenis AND status ='2'";
+    $query = "SELECT SUM(tb_hutang_piutang.nominal) AS hutang FROM `tb_hutang_piutang` WHERE jenis = $jenis AND status ='2' AND id_user='$id_user'";
     $result = mysqli_query($koneksi, $query);
     $hasil = [];
     while($row = mysqli_fetch_array($result)){
@@ -72,9 +73,9 @@ function get_total_hutang($jenis){
     return $hasil;
 }
 
-function get_list($jenis){
+function get_list($jenis, $id_user){
     global $koneksi;
-    $query = "SELECT * FROM `tb_hutang_piutang` WHERE jenis = $jenis";
+    $query = "SELECT * FROM `tb_hutang_piutang` WHERE jenis = $jenis AND id_user='$id_user'";
     $result = mysqli_query($koneksi, $query);
     $hasil = [];
     while($row = mysqli_fetch_array($result)){
