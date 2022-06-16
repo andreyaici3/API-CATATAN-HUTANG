@@ -1,9 +1,9 @@
 <?php
 
 $host = "localhost";
-$user = "root";
-$pass = "";
-$dtbs = "db_pab";
+$user = "daaw4477_dq";
+$pass = "joya_123";
+$dtbs = "daaw4477_db_pab";
 
 $koneksi = mysqli_connect($host, $user, $pass, $dtbs);
 
