@@ -1,7 +1,7 @@
 <?php
 
     include 'config.php';
-    $id = $_GET["x-ids"];
+    $id = $_POST["x-ids"];
 
     $hasil = [
         "hasil" => [
