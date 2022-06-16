@@ -53,7 +53,7 @@ h2{
   text-transform: uppercase;
 }
     </style>
-  <title>Document</title>
+  <title>ANDREY ANDRIANSYAH</title>
 </head>
 <body>
   <use>
