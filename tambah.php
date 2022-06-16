@@ -6,7 +6,7 @@ include 'config.php';
 @$jns = $_POST["x-jenis"];
 @$sts = $_POST["x-status"];
 @$lns = ($_POST["x-lunas"]=="")? "" : $_POST["x-lunas"];
-@$id_usr = $_POST["x-id"];
+@$id_usr = $_POST["x-ids"];
 
 if ($nom != "" && $tgl != "" && $jns != ""){
     if (add($ket, $nom, $tgl, $jns, $sts, $lns, $id_usr) > 0){
